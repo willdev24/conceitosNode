@@ -15,7 +15,7 @@ app.use('/Admin/cadastros', routerAdmin);
 //routes de areaClaint
 app.get('/extrato/:id', claintRouter)
 app.get('/conta', claintRouter)
-app.post('/deposito', claintRouter)
+app.post('/deposito/:id', claintRouter)
 app.put('/saque/:id', claintRouter)
 
 

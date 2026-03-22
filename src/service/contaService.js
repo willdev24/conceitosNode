@@ -3,6 +3,8 @@ const path = require('path');
 const {v4: uuidv4} = require('uuid');
 
 const Conta = require("../model/conta");
+const { error } = require('console');
+const { json } = require('stream/consumers');
 
 
 function criarConta(nome, cpf){
@@ -57,8 +59,41 @@ function extrato(id){
         return conta.estrato()
     };
 
+function deposito(id,deposito){
+
+if(!id || !deposito){
+        throw new Error('PREISA FORNECER OS VALORES')
+};
+
+if(typeof deposito !== 'String'){
+         throw new Error('o valor fornecido deve ser uma string')
+};
+
+
+const data = fs.readFile(path.join(__dirname,'../utils/banco.json'),'utf-8');
+const dados = JSON.parse(data)
+
+if( dados.some(val => val.id == id)){
+        throw new Error("Conta não encontrada")
+}
+
+
+
+
+    //vou pegar o d e o valor do deposito,
+    //  verificar se tem conta, buscando no banco de dados
+    //converter os dados do banco pra jogar dentro da class conta, 
+    //adicionar o estrato do deposito com data e hora 
+    //e por fim atualizar o banco com as novas informaçoes 
+
+
+
+
+};
+
 
 module.exports = {
         criarConta,
-        extrato
+        extrato,
+        deposito
 }
