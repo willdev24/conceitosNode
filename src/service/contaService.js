@@ -31,7 +31,6 @@ function criarConta(nome, cpf){
         if(cadastros.some(cadastro => cadastro.cpf === cpf)){
                 throw new Error('CPF já cadastrado');
         }
-        console.log(cadastros);
 
         const novoCadastro = new Conta(nome, cpf);    
         cadastros.push(novoCadastro);
@@ -46,49 +45,46 @@ function extrato(id){
         const data = fs.readFileSync(path.join(__dirname, '../utils/banco.json'), 'utf-8');           
         const cadastros = JSON.parse(data);
         const extrconta = cadastros.find(cadastro => cadastro.id == id);           
-      
+
         if(!extrconta){
                 throw new Error('Conta não encontrada');
         }
 
-    const  conta = new Conta(extrconta.nome, extrconta.cpf);
-           conta.id = extrconta.id;
-           conta.saldo = extrconta.saldo
-           conta.statement = extrconta.statement
+const  conta = new Conta(extrconta.nome, extrconta.cpf);
+        conta.id = extrconta.id;
+        conta.saldo = extrconta.saldo
+        conta.statement = extrconta.statement
         
         return conta.estrato()
     };
 
+
 function deposito(id,deposito){
 
-if(!id || !deposito){
-        throw new Error('PREISA FORNECER OS VALORES')
-};
+        if(!id || !deposito){
+                throw new Error('PREISA FORNECER UM VALOR')
+        };
 
-if(typeof deposito !== 'String'){
-         throw new Error('o valor fornecido deve ser uma string')
-};
+        const data = fs.readFileSync(path.join(__dirname,'../utils/banco.json'),'utf-8');
+        const dados = JSON.parse(data)
 
+        if( dados.some(val => val.id == id)== false ){
+                throw new Error("Conta não encontrada")
+        };
 
-const data = fs.readFile(path.join(__dirname,'../utils/banco.json'),'utf-8');
-const dados = JSON.parse(data)
+        const posicaonoJsonParaAtulizar = dados.findIndex(itens=> itens.id == id)
 
-if( dados.some(val => val.id == id)){
-        throw new Error("Conta não encontrada")
-}
+        const dadosConta = dados.find(itens=> itens.id == id)
+        const conta = new Conta(dadosConta.nome, dadosConta.cpf)
+        conta.depositar(deposito)
 
-
-
-
-    //vou pegar o d e o valor do deposito,
-    //  verificar se tem conta, buscando no banco de dados
-    //converter os dados do banco pra jogar dentro da class conta, 
-    //adicionar o estrato do deposito com data e hora 
-    //e por fim atualizar o banco com as novas informaçoes 
+        dados[posicaonoJsonParaAtulizar].saldo += conta.saldo;
+        dados[posicaonoJsonParaAtulizar].statement.push(... conta.statement)
+        fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(dados, null, 2))
 
 
 
-
+return  "deposito relizado com sucesso"
 };
 
 
