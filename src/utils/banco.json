@@ -1,0 +1,23 @@
+[
+  {
+    "id": "d904feca-c288-41c3-954c-85a1079afc54",
+    "nome": "Ayra",
+    "cpf": "55218516874",
+    "saldo": 0,
+    "statement": []
+  },
+  {
+    "id": "8dca4a16-3718-48cb-98c1-23efba0ef986",
+    "nome": "willy Thiago",
+    "cpf": "70219835225",
+    "saldo": 0,
+    "statement": [{"dsss":44}]
+  },
+  {
+    "id": "939e4fee-9f87-4ab5-ac6f-bb6f9067fce1",
+    "nome": "willy Thiago ",
+    "cpf": "12345678910",
+    "saldo": 0,
+    "statement": []
+  }
+]
