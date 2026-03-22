@@ -72,12 +72,15 @@ function deposito(id,deposito){
                 throw new Error("Conta não encontrada")
         };
 
+        //pega o index da posicao onde eu vou alterar o array dentro do banco de dados local
         const posicaonoJsonParaAtulizar = dados.findIndex(itens=> itens.id == id)
 
+        //pego os dados que preciso e mando para dentro da class conta para poder usar seus metodos (saque, deposito, extrato)
         const dadosConta = dados.find(itens=> itens.id == id)
         const conta = new Conta(dadosConta.nome, dadosConta.cpf)
         conta.depositar(deposito)
 
+        //atulizo os dados no array local
         dados[posicaonoJsonParaAtulizar].saldo += conta.saldo;
         dados[posicaonoJsonParaAtulizar].statement.push(... conta.statement)
         fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(dados, null, 2))
