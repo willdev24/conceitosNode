@@ -38,12 +38,17 @@
     "id": "6c6ff158-afdb-4c0d-accd-a529d17ffab3",
     "nome": "gabs",
     "cpf": "70635476231",
-    "saldo": 5000,
+    "saldo": 10000,
     "statement": [
       {
         "tipo": "depósito",
         "valor": 5000,
         "data": "2026-03-24T03:21:51.701Z"
+      },
+      {
+        "tipo": "depósito",
+        "valor": 5000,
+        "data": "2026-03-28T20:33:05.049Z"
       }
     ]
   }
