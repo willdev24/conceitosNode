@@ -3,21 +3,11 @@ const path = require('path');
 const {v4: uuidv4} = require('uuid');
 
 const Conta = require("../model/conta");
-const { error } = require('console');
-const { json } = require('stream/consumers');
+
 
 
 function criarConta(nome, cpf){
-         // Validação dos dados
-         if(!nome || !cpf){
-                 throw new Error('Nome e CPF são obrigatórios');
-        };
-
-         // Validação do tipo dos dados
-        if(typeof nome !== 'string' || typeof cpf !== 'string'){
-                throw new Error('Nome deve ser string e CPF deve ser string');
-        };
-
+        
         // Validação do formato do CPF
         if(cpf.toString().length !== 11){
               throw new Error('CPF deve conter 11 dígitos');  
@@ -88,11 +78,17 @@ function deposito(id,deposito){
 
 
 return  "deposito relizado com sucesso"
+
 };
+
+function saque(){
+
+}
 
 
 module.exports = {
         criarConta,
         extrato,
-        deposito
+        deposito,
+        saque
 }

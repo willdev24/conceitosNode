@@ -10,7 +10,7 @@
     "id": "425a6a5c-3224-436a-8b07-d6a64e396498",
     "nome": "willy Thiago ",
     "cpf": "70219835225",
-    "saldo": 1550,
+    "saldo": 2550,
     "statement": [
       {
         "tipo": "depósito",
@@ -26,6 +26,24 @@
         "tipo": "depósito",
         "valor": 1000,
         "data": "2026-03-22T06:54:48.094Z"
+      },
+      {
+        "tipo": "depósito",
+        "valor": 1000,
+        "data": "2026-03-23T01:47:06.168Z"
+      }
+    ]
+  },
+  {
+    "id": "6c6ff158-afdb-4c0d-accd-a529d17ffab3",
+    "nome": "gabs",
+    "cpf": "70635476231",
+    "saldo": 5000,
+    "statement": [
+      {
+        "tipo": "depósito",
+        "valor": 5000,
+        "data": "2026-03-24T03:21:51.701Z"
       }
     ]
   }

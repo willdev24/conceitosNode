@@ -1,4 +1,10 @@
+const fs = require('fs')
+const path = require('path')
 const { extrato, deposito } = require("../service/contaService");
+
+
+
+
 
 const areaClantget  = (req,res)=>{
         res.json({message: 'servidor rodando com get'})
@@ -31,9 +37,10 @@ const depositopost = (req,res)=>{
 
 };
 
-const saqueput = (req,res)=>{
+const saqueput =  ( req,res)=>{
         const { id } = req.params;
-        res.json({message: 'servidor rodando', id})
+        
+
 }
 
 module.exports = {
