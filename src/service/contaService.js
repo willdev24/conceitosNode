@@ -24,7 +24,6 @@ function criarConta(nome, cpf){
 
         const novoCadastro = new Conta(nome, cpf);    
         cadastros.push(novoCadastro);
-        console.log(cadastros);
         fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(cadastros,null,2))
 
          return { message: 'Cadastro criado com sucesso' };
@@ -81,7 +80,25 @@ return  "deposito relizado com sucesso"
 
 };
 
-function saque(){
+async function saque(id, valor){
+
+        const data = fs.readFileSync(path.join(__dirname,'../utils/banco.json'),'utf-8');
+        const dados = JSON.parse(data)
+
+        const posicaonoJsonParaAtulizar = dados.findIndex(itens=> itens.id == id)
+        const conta = await new Conta(dados.nome, dados.pf)
+        conta.saldo = dados.saldo
+
+        conta.saque(valor)
+        console.log()
+
+        dados[posicaonoJsonParaAtulizar].saldo = conta.saldo
+        dados[posicaonoJsonParaAtulizar].statement.push(... conta.statement)
+        fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(dados, null, 2))
+
+
+        return `saque de ${valor} realizado com sucesso!`
+
 
 }
 

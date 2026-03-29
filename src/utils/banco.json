@@ -10,7 +10,7 @@
     "id": "425a6a5c-3224-436a-8b07-d6a64e396498",
     "nome": "willy Thiago ",
     "cpf": "70219835225",
-    "saldo": 2550,
+    "saldo": 3500,
     "statement": [
       {
         "tipo": "depósito",
@@ -31,6 +31,16 @@
         "tipo": "depósito",
         "valor": 1000,
         "data": "2026-03-23T01:47:06.168Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 500,
+        "data": "2026-03-29T02:48:23.845Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T02:58:24.956Z"
       }
     ]
   },

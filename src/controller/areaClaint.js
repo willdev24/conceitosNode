@@ -1,8 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { extrato, deposito } = require("../service/contaService");
-
-
+const { extrato, deposito, saque } = require("../service/contaService");
 
 
 
@@ -37,8 +35,18 @@ const depositopost = (req,res)=>{
 
 };
 
-const saqueput =  ( req,res)=>{
+ const saqueput = async ( req,res)=>{
         const { id } = req.params;
+        const {valSaque}= req.body
+
+        try{
+                const result = await saque( id, valSaque)
+                res.json(result)
+
+        }catch(erro){
+            res.status(404).json({message:erro.message})
+        }
+
         
 
 }
