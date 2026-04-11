@@ -5,14 +5,17 @@ const { extrato, deposito, saque } = require("../service/contaService");
 
 
 const areaClantget  = (req,res)=>{
+        const { data } = req.params;
         res.json({message: 'servidor rodando com get'})
 }   
 
 const extratoget = (req,res)=>{
         const { id } = req.params;
+        const { data } = req.query;//pegando data da query string    
 
+       
         try{
-              resposta = extrato(id);
+              resposta = extrato(id ,data);
               res.json(resposta);  
         } catch (error) {
               res.status(404).json({ message: error.message });

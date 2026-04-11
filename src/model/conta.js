@@ -1,5 +1,13 @@
 const {v4: uuidv4} = require('uuid');
 
+
+const data = new Date();
+const formatada = data.toLocaleString("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "2-digit"
+});
+
 class contaBancaria{
     constructor(nome, cpf){
         this.id = uuidv4();
@@ -9,13 +17,12 @@ class contaBancaria{
         this.statement = [];
     }
 
-
 depositar(valor){
     if(valor <= 0){
         throw new Error('Valor de depósito deve ser positivo');
     }   
     this.saldo += valor;
-    this.statement.push({tipo: 'depósito', valor, data: new Date()});
+    this.statement.push({tipo: 'depósito', valor, data:formatada, saldo: this.saldo});
    }
 
 saque(valor){
@@ -26,7 +33,7 @@ saque(valor){
         throw new Error('Saldo insuficiente');
     }
     this.saldo -= valor;
-    this.statement.push({tipo: 'saque', valor, data: new Date()});
+    this.statement.push({tipo: 'saque', valor, data:formatada , saldo: this.saldo});
   }
 
  estrato(){
@@ -34,5 +41,6 @@ saque(valor){
   } 
 
 }
+
 
 module.exports = contaBancaria;

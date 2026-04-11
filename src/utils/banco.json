@@ -10,7 +10,7 @@
     "id": "425a6a5c-3224-436a-8b07-d6a64e396498",
     "nome": "willy Thiago ",
     "cpf": "70219835225",
-    "saldo": 3500,
+    "saldo": 500,
     "statement": [
       {
         "tipo": "depósito",
@@ -41,6 +41,36 @@
         "tipo": "saque",
         "valor": 1500,
         "data": "2026-03-29T02:58:24.956Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T17:59:09.375Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T18:00:42.458Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T18:07:18.181Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T18:10:37.728Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T18:10:57.165Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 1500,
+        "data": "2026-03-29T18:10:58.699Z"
       }
     ]
   },
@@ -48,7 +78,7 @@
     "id": "6c6ff158-afdb-4c0d-accd-a529d17ffab3",
     "nome": "gabs",
     "cpf": "70635476231",
-    "saldo": 10000,
+    "saldo": 19350,
     "statement": [
       {
         "tipo": "depósito",
@@ -59,6 +89,71 @@
         "tipo": "depósito",
         "valor": 5000,
         "data": "2026-03-28T20:33:05.049Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 7000,
+        "data": "2026-03-30T03:30:38.956Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 3000,
+        "data": "2026-03-30T03:32:26.501Z"
+      },
+      {
+        "tipo": "depósito",
+        "valor": 15000,
+        "data": "2026-03-30T03:33:10.489Z"
+      },
+      {
+        "tipo": "saque",
+        "valor": 50,
+        "data": "2026-03-30T03:52:24.746Z",
+        "saldo": 14950
+      },
+      {
+        "tipo": "saque",
+        "valor": 50,
+        "data": "2026-03-30T03:52:54.786Z",
+        "saldo": 14900
+      },
+      {
+        "tipo": "saque",
+        "valor": 50,
+        "data": "30 de mar. de 2026, 00:00",
+        "saldo": 14850
+      },
+      {
+        "tipo": "depósito",
+        "valor": 1500,
+        "data": "11 de abr. de 2026",
+        "saldo": 1500
+      },
+      {
+        "tipo": "depósito",
+        "valor": 1500,
+        "data": "11 de abr. de 2026",
+        "saldo": 1500
+      },
+      {
+        "tipo": "depósito",
+        "valor": 1500,
+        "data": "11/04/26",
+        "saldo": 1500
+      }
+    ]
+  },
+  {
+    "id": "80f4bb60-f4be-40d0-a595-1f49b6b01eba",
+    "nome": "Marlon",
+    "cpf": "70635476232",
+    "saldo": 1500,
+    "statement": [
+      {
+        "tipo": "depósito",
+        "valor": 1500,
+        "data": "11/04/26",
+        "saldo": 1500
       }
     ]
   }

@@ -1,7 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const {v4: uuidv4} = require('uuid');
-
 const Conta = require("../model/conta");
 
 
@@ -30,7 +28,7 @@ function criarConta(nome, cpf){
 
 };
 
-function extrato(id){
+function extrato(id ,dataDeTransacao){
         const data = fs.readFileSync(path.join(__dirname, '../utils/banco.json'), 'utf-8');           
         const cadastros = JSON.parse(data);
         const extrconta = cadastros.find(cadastro => cadastro.id == id);           
@@ -39,11 +37,21 @@ function extrato(id){
                 throw new Error('Conta não encontrada');
         }
 
-const  conta = new Conta(extrconta.nome, extrconta.cpf);
-        conta.id = extrconta.id;
-        conta.saldo = extrconta.saldo
-        conta.statement = extrconta.statement
-        
+         const  conta = new Conta(extrconta.nome, extrconta.cpf);
+                conta.id = extrconta.id;
+                conta.saldo = extrconta.saldo
+                conta.statement = extrconta.statement
+  
+        if(dataDeTransacao){
+                
+                const extratoFiltrado = conta.statement.filter(transacao => transacao.data === dataDeTransacao); 
+                if(extratoFiltrado.length === 0)
+                throw new Error('Não foram encontradas transações para a data informada');
+                return extratoFiltrado
+        };
+
+
+
         return conta.estrato()
     };
 
@@ -86,12 +94,13 @@ async function saque(id, valor){
         const dados = JSON.parse(data)
 
         const posicaonoJsonParaAtulizar = dados.findIndex(itens=> itens.id == id)
+        const dadosParaClass = dados.find(itens => itens.id == id)
+        
+        //joga os dados para a class conta executar seus metodos
         const conta = await new Conta(dados.nome, dados.pf)
-        conta.saldo = dados.saldo
-
+        conta.saldo = dadosParaClass.saldo
         conta.saque(valor)
-        console.log()
-
+   
         dados[posicaonoJsonParaAtulizar].saldo = conta.saldo
         dados[posicaonoJsonParaAtulizar].statement.push(... conta.statement)
         fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(dados, null, 2))
