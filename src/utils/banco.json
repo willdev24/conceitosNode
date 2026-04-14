@@ -156,5 +156,12 @@
         "saldo": 1500
       }
     ]
+  },
+  {
+    "id": "32c2d3df-6b14-4d28-b4b0-59d7bead3bf9",
+    "nome": "Gracinete",
+    "cpf": "78549632134",
+    "saldo": 0,
+    "statement": []
   }
 ]
