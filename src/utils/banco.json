@@ -1,12 +1,5 @@
 [
   {
-    "id": "292057ed-eed1-4654-b7ca-cba76e8a2103",
-    "nome": "willy Thiago ",
-    "cpf": "70219887485",
-    "saldo": 0,
-    "statement": []
-  },
-  {
     "id": "425a6a5c-3224-436a-8b07-d6a64e396498",
     "nome": "willy Thiago ",
     "cpf": "70219835225",
@@ -145,8 +138,8 @@
   },
   {
     "id": "80f4bb60-f4be-40d0-a595-1f49b6b01eba",
-    "nome": "Marlon",
-    "cpf": "70635476232",
+    "nome": "marlon",
+    "cpf": "78549625984",
     "saldo": 1500,
     "statement": [
       {
@@ -156,12 +149,5 @@
         "saldo": 1500
       }
     ]
-  },
-  {
-    "id": "32c2d3df-6b14-4d28-b4b0-59d7bead3bf9",
-    "nome": "Gracinete",
-    "cpf": "78549632134",
-    "saldo": 0,
-    "statement": []
   }
 ]

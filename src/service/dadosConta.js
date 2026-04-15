@@ -11,18 +11,11 @@ function pegarDados(){
 };
 
 function devolverDados(contaAtualizada){
-       const arualizar =  pegarDados();
-       const contaIndex = arualizar.findIndex(cadastro => cadastro.id == contaAtualizada.id);//encontrar o index da conta que eu quero atualizar
 
-       if (contaIndex === -1) {
-        throw new Error('Conta não encontrada');
-        }       
-
-        atualizar[contaIndex] = contaAtualizada; //atualizar a conta no array local
-
-        fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(atualizar,null,2))       
+        fs.writeFileSync(path.join(__dirname, '../utils/banco.json'), JSON.stringify(contaAtualizada,null,2))       
         return { message: 'Dados atualizados com sucesso' };
 };
+
 
 
 function criarConta(nome, cpf){
@@ -51,28 +44,29 @@ function criarConta(nome, cpf){
 
 
 function atualizar(id, nome, cpf) { //ajeitar para atualizar sem apagar os otros user
-    const cadastro = pegarDados(id)
-    const extrconta = cadastro.find(cadastro => cadastro.id == id);   
+    const cadastro = pegarDados()
+    const extrconta = cadastro.findIndex(cadastro => cadastro.id == id);   
+    
+    if(cpf.toString().length !== 11){
+              throw new Error('CPF deve conter 11 dígitos');  
+        };    
 
-    if (!extrconta) {
+
+if (nome) cadastro[extrconta].nome = nome
+if (cpf) cadastro[extrconta].cpf = cpf
+
+if (!extrconta) {
     throw new Error('Conta não encontrada');
     }
 
-    if (nome) extrconta.nome = nome;
-    if (cpf) extrconta.cpf = cpf;
-
-   return devolverDados(extrconta);
-    
+   return devolverDados(cadastro);
 
 };
 
 
 function deletar(id) {
-       
-        const cadastros = fs.readFileSync(path.join(__dirname, '../utils/banco.json'), 'utf-8');
-        const cadastrosArray = JSON.parse(cadastros);
-      
-        const novoCadastrosArray = cadastrosArray.filter(cadastro => cadastro.id !== id);
+        const cadastro = pegarDados()
+        const novoCadastrosArray = cadastro.filter(cadastro => cadastro.id !== id);
         devolverDados(novoCadastrosArray );
 
 }
