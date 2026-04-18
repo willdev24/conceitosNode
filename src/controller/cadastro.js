@@ -1,10 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const {v4: uuidv4} = require('uuid');
-const { criarConta, atualizar, deletar } = require('../service/dadosConta');
+const { criarConta, atualizar, deletar, dadosClinte } = require('../service/dadosConta');
 
 const cadastroget  = (req,res)=>{
-        res.json({message: 'servidor rodando com get'})
+        
+        const { id } = req.params;
+
+        try{
+                const resposta = dadosClinte(id);
+                res.json(resposta);  
+        }catch (error) {
+                res.status(404).json({ message: error.message });
+        }
 }
 
 

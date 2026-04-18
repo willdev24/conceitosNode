@@ -4,7 +4,7 @@ const { verifyiExistsccountID } = require('../middleware/middleware');
 
 
 // GET
-router.get('/', cadastroget); 
+router.get('/:id', cadastroget); 
 
 // POST
 router.post('/' , cadastrarpost);

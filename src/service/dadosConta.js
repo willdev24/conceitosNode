@@ -17,6 +17,15 @@ function devolverDados(contaAtualizada){
 };
 
 
+function dadosClinte(id){
+        const cadastro = pegarDados();
+        const extrconta = cadastro.find(cadastro => cadastro.id == id);         
+        if (!extrconta) {
+                throw new Error('Conta não encontrada');
+        }
+        return extrconta;
+}
+
 
 function criarConta(nome, cpf){
         
@@ -75,5 +84,6 @@ function deletar(id) {
 module.exports = {
     atualizar,
     criarConta,
-    deletar
+    deletar,
+    dadosClinte
 }   
